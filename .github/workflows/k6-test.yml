@@ -10,11 +10,7 @@ jobs:
     - name: Checkout Code
       uses: actions/checkout@v3
 
-    - name: Install k6
-      run: |
-        curl https://cdn.k6.io/v0.27.0/bin/linux/amd64/k6 -o k6
-        chmod +x k6
-
-    - name: Run k6 Tests
-      run: |
-        ./k6 run test.js
+    - name: k6 Load Test
+      uses: grafana/k6-action@v0.2.0
+        with:
+          filename: test.js
