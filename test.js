@@ -9,7 +9,8 @@ export const options = {
 export default function () {
     let response = http.get('https://google.com');
     check(response, {
-        "Verify Google page is loaded": (r) => r.body.includes("Google"),
+        'is status 200': (r) => r.status === 200,
+        'Verify Google page is loaded': (r) => r.body.includes('Google'),
     });
     sleep(1);
 }
